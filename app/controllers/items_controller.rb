@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_order, only: [:create]
-  after_action :calculate_price, only: [:create]
+  after_action :calculate_amount_discount, only: [:create]
 
   def index
     @items = current_user.items&.all
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     @order = Order.find_or_create_by(status: "pending", user_id: current_user.id)
   end
 
-  def calculate_price
+  def calculate_amount_discount
     price = 0
     @order.items.each do |item|
       price += item.product&.price * item.quantity + item.product&.tax
