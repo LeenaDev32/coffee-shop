@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "81a74627-d486-4bf0-8702-fdf1b8dc367d",
+		"name": "Coffee-shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sign_up user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test1@email.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "sign_in user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test3@email.com\",\n  \"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/sign_in?email=test@email.com&password=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"sign_in"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@email.com"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhY2Nlc3MtdG9rZW4iOiJreGVqUGlDNmNfMHgzNmdaeG1oTXd3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IngzSWVNa0JOMFZLcUhmUVdWdW41WUEiLCJleHBpcnkiOiIxNjcxMTAzMDcyIiwidWlkIjoidGVzdDVAZW1haWwuY29tIn0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhY2Nlc3MtdG9rZW4iOiJNTi1iVTI4WXZBa21xTnhpMGJ4RmZ3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IlZvVXNsV2Y4UU9vdWdGVUUtMVM0UGciLCJleHBpcnkiOiIxNjcxMDk1ODE2IiwidWlkIjoidGVzdDNAZW1haWwuY29tIn0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"order\": {\n    \"status\" : \"placed\"\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhY2Nlc3MtdG9rZW4iOiJreGVqUGlDNmNfMHgzNmdaeG1oTXd3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IngzSWVNa0JOMFZLcUhmUVdWdW41WUEiLCJleHBpcnkiOiIxNjcxMTAzMDcyIiwidWlkIjoidGVzdDVAZW1haWwuY29tIn0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/discount_combos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhY2Nlc3MtdG9rZW4iOiJ5ci0zU1AzQV90NjhlWF9nUzU1UV9RIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6Ijc1cUU4UWUtMVhqMGVVTXc0SVl3UHciLCJleHBpcnkiOiIxNjcxMTA3MTk0IiwidWlkIjoidGVzdDdAZW1haWwuY29tIn0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"combo\": [3,1],\n    \"discount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/discount_combos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"discount_combos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/discount_combos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
