@@ -1,0 +1,2 @@
+class DiscountCombo < ApplicationRecord
+end
